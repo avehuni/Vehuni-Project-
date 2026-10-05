@@ -58,8 +58,7 @@ a:focus-visible,.btn:focus-visible,button:focus-visible,input:focus-visible,text
 /* Hero */
 .hero{position:relative;overflow:hidden;background:radial-gradient(ellipse at 80% 30%,#d0742f 0%,var(--pom) 40%,var(--pom-deep) 100%);color:var(--linen)}
 .hero::before{content:"";position:absolute;inset:0;opacity:.11;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cpath d='M11 11 L20 30 L29 11 M7 11 H15 M25 11 H33 M51 51 L60 70 L69 51 M47 51 H55 M65 51 H73' fill='none' stroke='%23f5efe6' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")}
-.hero .wrap{position:relative;display:grid;grid-template-columns:1fr;gap:3rem;align-items:center;padding-block:6rem 8rem}
-.hero-copy{max-width:46rem}
+.hero .wrap{position:relative;display:grid;grid-template-columns:1.25fr 1fr;gap:3rem;align-items:center;padding-block:6rem 8rem}
 .hero-copy{display:flex;flex-direction:column;gap:1.4rem;min-width:0}
 .hero .hy-big{font-family:var(--arm);font-weight:600;font-size:clamp(3.5rem,9vw,6.5rem);line-height:1;color:#fbe0c8}
 .hero h1{font-size:clamp(2.4rem,5vw,3.6rem);color:var(--white)}
@@ -354,6 +353,7 @@ footer .wrap.foot-bottom{border-top:1px solid rgba(233,221,210,.15);padding-bloc
 @media (max-width:960px){
   .nav ul{display:none}
   .hero .wrap,.meaning,.archive-grid,.gathering .wrap,.fund{grid-template-columns:1fr}
+  .rosette{max-width:260px}
   .stats .grid{grid-template-columns:repeat(2,1fr)}
   .story-cols,.kindred{grid-template-columns:1fr}
   footer .wrap{grid-template-columns:1fr}
@@ -396,6 +396,21 @@ footer .wrap.foot-bottom{border-top:1px solid rgba(233,221,210,.15);padding-bloc
         <a class="btn light" href="#archive">Add Your Branch</a>
         <a class="btn ghost" href="#story">Read Our Story</a>
       </div>
+    </div>
+    <div class="rosette" aria-hidden="true">
+      <svg viewBox="-100 -100 200 200">
+        <g fill="none" stroke="#fbf3ec" stroke-width="1.1" opacity=".85">
+          <circle r="96" opacity=".5"/><circle r="88" opacity=".35"/>
+          <g id="petals">
+            <ellipse rx="16" ry="62" transform="rotate(0)"/><ellipse rx="16" ry="62" transform="rotate(22.5)"/>
+            <ellipse rx="16" ry="62" transform="rotate(45)"/><ellipse rx="16" ry="62" transform="rotate(67.5)"/>
+            <ellipse rx="16" ry="62" transform="rotate(90)"/><ellipse rx="16" ry="62" transform="rotate(112.5)"/>
+            <ellipse rx="16" ry="62" transform="rotate(135)"/><ellipse rx="16" ry="62" transform="rotate(157.5)"/>
+          </g>
+          <circle r="30"/><circle r="18" fill="#fbf3ec" fill-opacity=".12"/>
+          <path d="M0 -76 L8 -66 L0 -56 L-8 -66 Z M0 76 L8 66 L0 56 L-8 66 Z M-76 0 L-66 8 L-56 0 L-66 -8 Z M76 0 L66 8 L56 0 L66 -8 Z" fill="#fbf3ec" fill-opacity=".25"/>
+        </g>
+      </svg>
     </div>
   </div>
 </header>
