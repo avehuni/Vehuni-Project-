@@ -214,10 +214,10 @@ form .btn[disabled]{opacity:.55;cursor:default;transform:none}
 @media (max-width:760px){.br-wide{display:none}}
 .ftree-wrap{position:relative;display:flex;gap:.5rem}
 .ftree-wrap .ftree{flex:1;min-width:0}
-.gen-rail{position:relative;flex:none;width:11rem;border-right:1px dashed var(--line)}
+.gen-rail{position:relative;flex:none;width:4.6rem;border-right:1px dashed var(--line)}
 .gen-rail span{position:absolute;left:0;right:.8rem;white-space:nowrap;text-align:right;font-family:var(--display);font-size:.9rem;color:var(--gold);font-weight:600;line-height:1.2;transform:translateY(-50%)}
 .gen-rail span small{display:block;font-family:var(--body);font-weight:400;font-size:.68rem;letter-spacing:.06em;color:var(--muted)}
-@media (max-width:640px){.gen-rail{width:4.4rem}.gen-rail span small{display:none}}
+@media (max-width:640px){.gen-rail{width:3.4rem}.gen-rail span{font-size:.8rem;right:.5rem}}
 /* Essay */
 .essay{max-width:44rem;margin:0 auto 4rem;display:flex;flex-direction:column;gap:1.5rem}
 .essay-head{text-align:center;display:flex;flex-direction:column;gap:1rem;align-items:center;margin-bottom:1.5rem}
@@ -239,7 +239,7 @@ form .btn[disabled]{opacity:.55;cursor:default;transform:none}
 .essay-photo figcaption{font-family:var(--display);font-style:italic;color:var(--muted);text-align:center;font-size:.95rem}
 .essay-close{text-align:center;margin-top:1rem}
 .essay-close .q{display:block;font-size:1.9rem;color:var(--pom);font-style:italic;margin-top:.6rem}
-.essay-sign{display:flex;flex-direction:column;align-items:flex-end;gap:.2rem;margin-top:1rem}
+.essay-sign{display:flex;flex-direction:column;align-items:center;text-align:center;gap:.2rem;margin-top:1rem}
 .essay-sign span{font-style:italic;color:var(--muted)}
 .essay-sign b{font-weight:500;font-size:1.3rem}
 .chapters{margin-top:1.5rem;display:flex;flex-direction:column;gap:2rem;scroll-margin-top:90px}
@@ -1029,16 +1029,18 @@ footer .wrap.foot-bottom{border-top:1px solid rgba(233,221,210,.15);padding-bloc
     const k=tree.clientWidth/inner.scrollWidth*.99;
     inner.style.zoom=k<1?Math.max(k,.76):1;
   }
+  let centered=false;
   function place(){
     if(!wrap.offsetParent) return;
     fit();
+    if(!centered&&tree.scrollWidth>tree.clientWidth){tree.scrollLeft=(tree.scrollWidth-tree.clientWidth)/2;centered=true;}
     const top=rail.getBoundingClientRect().top, ys={};
     tree.querySelectorAll('.node').forEach(n=>{
       let d=0,el=n.parentElement; while(el&&el!==tree){ if(el.tagName==='UL') d++; el=el.parentElement; }
       const r=n.getBoundingClientRect(), y=r.top+r.height/2-top;
       if(!(d in ys)) ys[d]=y; else ys[d]=Math.min(ys[d],y);
     });
-    rail.innerHTML=Object.keys(ys).sort((a,b)=>a-b).map(d=>'<span style="top:'+ys[d]+'px">Generation '+names[d-1]+'<small>'+rel[d-1]+'</small></span>').join('');
+    rail.innerHTML=Object.keys(ys).sort((a,b)=>a-b).map(d=>'<span style="top:'+ys[d]+'px">Gen '+names[d-1]+'</span>').join('');
   }
   window.addEventListener('resize',place); window.addEventListener('hashchange',()=>setTimeout(place,50));
   if(document.fonts&&document.fonts.ready) document.fonts.ready.then(place);
