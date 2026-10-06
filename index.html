@@ -750,7 +750,6 @@ label .opt{font-weight:400;color:var(--muted);font-size:.85em}
           <p class="opt-intro">Tell us how your branch carries the Vehuni name and what you know of those who came before you.</p>
           <label for="f-stitle">Story title<input id="f-stitle" name="stitle" maxlength="120" placeholder="e.g. From Marash to Montreal"></label>
           <label for="f-stext">Your story<textarea id="f-stext" name="stext" required maxlength="20000" style="min-height:12rem" placeholder="Who were your Vehuni ancestors, where did they live, and how did your family come to be where it is today?"></textarea></label>
-          <label for="f-photos">Photographs to accompany your story<input id="f-photos" name="photos" maxlength="300" placeholder="Describe the photographs you would like to share"></label>
         </div>
         <button class="btn pom" id="f-submit" type="submit">Join the Archive</button>
         <p class="status" id="f-status" aria-live="polite">The archive opens once the page connects.</p>
@@ -937,7 +936,7 @@ label .opt{font-weight:400;color:var(--muted);font-size:.85em}
   const archive=document.getElementById('archive');
   const placesEl=document.getElementById('places-list');
   const FIELDS=['name','connection','city','country','ancestor','origin'];
-  const SFIELDS=['stitle','stext','photos'];
+  const SFIELDS=['stitle','stext'];
   let db=null, me=null, emailMode=false;
   const FORM_ENDPOINT='https://formsubmit.co/ajax/alina@wholenesseducation.com';
   btn.disabled=true;
@@ -998,7 +997,7 @@ label .opt{font-weight:400;color:var(--muted);font-size:.85em}
         const res=await fetch(FORM_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},
           body:JSON.stringify({_subject:(story.stext?'New branch and family story for The Vehuni Project: ':'New branch for The Vehuni Project: ')+data.name,_template:'table',_captcha:'false',
             'Name':data.name,'Email':email,_replyto:email,'Vehuni connection':data.connection,'City':data.city,'Country':data.country,
-            'Eldest known ancestor':data.ancestor,'Ancestral town or village':data.origin,'Story title':story.stitle,'Story':story.stext,'Photographs':story.photos})});
+            'Eldest known ancestor':data.ancestor,'Ancestral town or village':data.origin,'Story title':story.stitle,'Story':story.stext})});
         if(!res.ok) throw new Error('send');
         let ok=true; try{const j=await res.json(); if(j&&(j.success===false||j.success==='false')) ok=false;}catch(_){}
         if(!ok) throw new Error('send');
@@ -1019,7 +1018,7 @@ label .opt{font-weight:400;color:var(--muted);font-size:.85em}
       data.createdAt=(ex&&ex.exists&&ex.data()&&ex.data().createdAt)||Date.now();
       data.updatedAt=Date.now();
       await ref.set(data);
-      if(story.stext){await db.collection('stories').doc(me).set({name:data.name,email:email,branch:data.ancestor,title:story.stitle,text:story.stext,photos:story.photos,submittedAt:Date.now()});}
+      if(story.stext){await db.collection('stories').doc(me).set({name:data.name,email:email,branch:data.ancestor,title:story.stitle,text:story.stext,submittedAt:Date.now()});}
       status.textContent=story.stext?'Saved. Your branch is now part of the archive, and your story has been sent privately to Alina.':'Saved. Your branch is now part of the archive.'; btn.textContent='Update My Branch';
     }catch(err){
       status.textContent=(err&&err.code==='unavailable')?'Your entry could not be saved just now; please try again in a moment.':'Your entry could not be saved. If your access to this page is view-only, ask Alina for contributor access to add your branch.';
