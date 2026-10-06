@@ -433,6 +433,7 @@ footer .wrap.foot-bottom{border-top:1px solid rgba(233,221,210,.15);padding-bloc
 label .opt{font-weight:400;color:var(--muted);font-size:.85em}
 .thanks{text-align:center;display:flex;flex-direction:column;align-items:center;gap:.9rem;padding:2.8rem 1.6rem;outline:none;background:var(--white);border:1px solid var(--line);border-radius:20px;box-shadow:0 18px 40px -30px rgba(58,42,34,.45)}
 .thanks[hidden]{display:none}
+.thanks-logo{width:72px;height:72px;object-fit:contain;display:block}
 .thanks-mark{font-family:var(--arm);font-weight:600;font-size:2.4rem;line-height:1;color:var(--white);background:var(--pom);width:4.2rem;height:4.2rem;border-radius:999px;display:grid;place-items:center;box-shadow:0 12px 26px -14px rgba(122,52,18,.7)}
 .thanks h3{font-size:1.6rem}
 .thanks p{color:var(--muted);max-width:30rem}
@@ -753,7 +754,7 @@ label .opt{font-weight:400;color:var(--muted);font-size:.85em}
         <p class="status" id="f-status" aria-live="polite">The archive opens once the page connects.</p>
       </form>
       <div class="thanks" id="f-thanks" hidden tabindex="-1">
-        <span class="thanks-mark" aria-hidden="true">Վ</span>
+        <img class="thanks-logo" alt="" width="72" height="72">
         <h3>Thank You for Adding Your Branch</h3>
         <p id="f-thanks-msg">Your branch has been sent to Alina, and it will take its place in the family archive once it is added.</p>
         <button type="button" class="btn ghost-dark" id="f-again">Add Another Branch</button>
@@ -979,6 +980,7 @@ label .opt{font-weight:400;color:var(--muted);font-size:.85em}
     if(me){btn.disabled=false;status.textContent='Your entry will be visible to everyone who opens this page.';}
     else status.textContent='Sign in on claude.ai to add your branch.';
   }
+  {const li=document.querySelector('.logo-img'),tl=document.querySelector('.thanks-logo'); if(li&&tl) tl.src=li.src;}
   document.getElementById('f-again').addEventListener('click',()=>{document.getElementById('f-thanks').hidden=true;form.hidden=false;form.elements.name.focus();});
   form.addEventListener('submit',async e=>{
     e.preventDefault();
