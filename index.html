@@ -398,6 +398,16 @@ footer .wrap.foot-bottom{border-top:1px solid rgba(233,221,210,.15);padding-bloc
 .gen-key dd{margin:.15rem 0 0;font-size:.78rem;color:var(--muted);line-height:1.3}
 @media (max-width:760px){.gen-key{grid-template-columns:repeat(3,minmax(0,1fr));row-gap:1rem}}
 @media (max-width:420px){.gen-key{grid-template-columns:repeat(2,minmax(0,1fr));padding-inline:0;column-gap:.3rem}.gen-key dd{font-size:.72rem;white-space:nowrap}}
+.m-br{display:none}
+@media (max-width:960px){
+  .fund{text-align:center;justify-items:center}
+  .fund .copy{align-items:center}
+  .fund ul{width:100%}
+  .fund li{display:block;text-align:center}
+  .fund li i{display:inline-block;vertical-align:middle;margin:-.15rem .55rem 0 0}
+  .fund .pill{align-self:center}
+  .m-br{display:inline}
+}
 </style>
 </head>
 <body>
@@ -831,7 +841,7 @@ footer .wrap.foot-bottom{border-top:1px solid rgba(233,221,210,.15);padding-bloc
     <div class="fund">
       <div class="copy">
         <span class="pill">Opening Soon</span>
-        <h2>Help Bring Us Together</h2>
+        <h2>Help Bring Us <br class="m-br">Together</h2>
         <p>A dedicated reunion fund will soon welcome contributions, so that every branch of the family, near or far, can take its seat at the table.</p>
       </div>
       <ul>
