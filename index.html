@@ -723,8 +723,9 @@ footer .wrap.foot-bottom{border-top:1px solid rgba(233,221,210,.15);padding-bloc
         <h3>Your Branch</h3>
         <div class="row">
           <label for="f-name">Your name<input id="f-name" name="name" required maxlength="80" placeholder="e.g. Anahit Vehuni"></label>
-          <label for="f-spelling">Spelling of the name<input id="f-spelling" name="spelling" maxlength="40" placeholder="Vehuni, Vehouni, or another"></label>
+          <label for="f-email">Email<input id="f-email" name="email" type="email" required maxlength="120" autocomplete="email" placeholder="e.g. anahit@email.com"></label>
         </div>
+        <label for="f-spelling">Spelling of the name<input id="f-spelling" name="spelling" maxlength="40" placeholder="Vehuni, Vehouni, or another"></label>
         <div class="row">
           <label for="f-city">City<input id="f-city" name="city" maxlength="60" placeholder="e.g. Yerevan"></label>
           <label for="f-country">Country<input id="f-country" name="country" required maxlength="60" placeholder="e.g. Armenia"></label>
@@ -967,7 +968,9 @@ footer .wrap.foot-bottom{border-top:1px solid rgba(233,221,210,.15);padding-bloc
   form.addEventListener('submit',async e=>{
     e.preventDefault();
     const data={}; FIELDS.forEach(k=>data[k]=(form.elements[k].value||'').trim());
-    if(!data.name||!data.country){status.textContent='Please add your name and country.';return;}
+    const email=(form.elements.email.value||'').trim();
+    if(!data.name||!email||!data.country){status.textContent='Please add your name, email, and country.';return;}
+    if(!form.elements.email.checkValidity()){status.textContent='Please check your email address.';return;}
     const story={}; SFIELDS.forEach(k=>story[k]=(form.elements[k].value||'').trim());
     if(story.stext&&!story.stitle){status.textContent='Please give your story a title.';return;}
     if(emailMode){
@@ -975,7 +978,7 @@ footer .wrap.foot-bottom{border-top:1px solid rgba(233,221,210,.15);padding-bloc
       try{
         const res=await fetch(FORM_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},
           body:JSON.stringify({_subject:(story.stext?'New branch and family story for The Vehuni Project: ':'New branch for The Vehuni Project: ')+data.name,_template:'table',_captcha:'false',
-            'Name':data.name,'Spelling of the name':data.spelling,'City':data.city,'Country':data.country,
+            'Name':data.name,'Email':email,_replyto:email,'Spelling of the name':data.spelling,'City':data.city,'Country':data.country,
             'Eldest known ancestor':data.ancestor,'Ancestral town or village':data.origin,'Story title':story.stitle,'Story':story.stext,'Photographs':story.photos})});
         if(!res.ok) throw new Error('send');
         form.reset();
@@ -993,7 +996,7 @@ footer .wrap.foot-bottom{border-top:1px solid rgba(233,221,210,.15);padding-bloc
       data.createdAt=(ex&&ex.exists&&ex.data()&&ex.data().createdAt)||Date.now();
       data.updatedAt=Date.now();
       await ref.set(data);
-      if(story.stext){await db.collection('stories').doc(me).set({name:data.name,branch:data.ancestor,title:story.stitle,text:story.stext,photos:story.photos,submittedAt:Date.now()});}
+      if(story.stext){await db.collection('stories').doc(me).set({name:data.name,email:email,branch:data.ancestor,title:story.stitle,text:story.stext,photos:story.photos,submittedAt:Date.now()});}
       status.textContent=story.stext?'Saved. Your branch is now part of the archive, and your story has been sent privately to Alina.':'Saved. Your branch is now part of the archive.'; btn.textContent='Update My Branch';
     }catch(err){
       status.textContent=(err&&err.code==='unavailable')?'Your entry could not be saved just now; please try again in a moment.':'Your entry could not be saved. If your access to this page is view-only, ask Alina for contributor access to add your branch.';
