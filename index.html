@@ -117,12 +117,13 @@ form .btn[disabled]{opacity:.55;cursor:default;transform:none}
 .story-card .place-tag{font-size:.78rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
 .story-card h3{font-size:1.4rem}
 .tree-wrap{background:var(--white);border:1px solid var(--line);border-radius:20px;padding:2.4rem 2rem;overflow-x:auto}
+@media (min-width:900px){.tree-wrap{--tw:min(calc(100vw - 3rem),90rem);width:var(--tw);margin-inline:calc(50% - var(--tw) / 2);padding-inline:1.5rem}}
 .tree-wrap h3{font-size:1.6rem;text-align:center;margin-bottom:.4rem}
 .tree-wrap > p{text-align:center;color:var(--muted);margin-bottom:2rem}
 .ftree{overflow-x:auto;padding-bottom:.5rem}
 .ftree ul{display:flex;justify-content:center;padding:28px 0 0;margin:0;position:relative}
 .ftree > ul{padding-top:0;min-width:max-content;margin-inline:auto}
-.ftree li{list-style:none;position:relative;padding:28px 8px 0;display:flex;flex-direction:column;align-items:center}
+.ftree li{list-style:none;position:relative;padding:28px 5px 0;display:flex;flex-direction:column;align-items:center}
 .ftree > ul > li{padding-top:0}
 .ftree li::before,.ftree li::after{content:"";position:absolute;top:0;right:50%;width:50%;height:28px;border-top:2px solid var(--gold)}
 .ftree li::after{right:auto;left:50%;border-left:2px solid var(--gold)}
@@ -134,7 +135,7 @@ form .btn[disabled]{opacity:.55;cursor:default;transform:none}
 .ftree li:only-child::after{border-radius:0}
 .ftree > ul > li::before,.ftree > ul > li::after{display:none}
 .ftree ul ul::before{content:"";position:absolute;top:0;left:50%;height:28px;border-left:2px solid var(--gold)}
-.node{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:.75rem 1rem;min-width:8.5rem;display:flex;flex-direction:column;align-items:center;gap:.15rem;box-shadow:0 10px 24px -18px rgba(58,42,34,.45)}
+.node{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:.7rem .8rem;min-width:7.4rem;display:flex;flex-direction:column;align-items:center;gap:.15rem;box-shadow:0 10px 24px -18px rgba(58,42,34,.45)}
 .node b{font-family:var(--display);font-weight:500;font-size:1.02rem;white-space:nowrap}
 .node small{font-size:.74rem;color:var(--muted);white-space:nowrap}
 .node .amp{font-family:var(--display);color:var(--pom);font-size:.9rem;line-height:1}
@@ -142,6 +143,9 @@ form .btn[disabled]{opacity:.55;cursor:default;transform:none}
 .node.mem b{color:var(--memory)}
 .node.mem svg{margin-bottom:.15rem}
 .node.couple.mem b{color:var(--pom-deep)}
+.node.small{min-width:5.6rem;padding:.55rem .7rem;border-radius:12px;box-shadow:0 8px 18px -16px rgba(58,42,34,.4)}
+.node.small b{font-size:.95rem}
+.node.small small{font-size:.7rem}
 .legend{display:flex;justify-content:center;gap:.5rem;align-items:center;margin-top:1.4rem;font-size:.85rem;color:var(--muted)}
 
 /* Kindred */
@@ -419,7 +423,7 @@ footer .wrap.foot-bottom{border-top:1px solid rgba(233,221,210,.15);padding-bloc
   <div class="wrap">
     <div class="grid">
       <div class="stat"><b>6</b><span>generations from Tovmas and Maria to today</span></div>
-      <div class="stat"><b>8</b><span>living descendants in our founding branch</span></div>
+      <div class="stat"><b>8</b><span>living family members who carry the Vehuni name</span></div>
       <div class="stat"><b>All</b><span>spellings of our name welcomed as one family</span></div>
       <div class="stat"><b>1</b><span>dream of gathering everyone around one table</span></div>
     </div>
@@ -566,14 +570,29 @@ footer .wrap.foot-bottom{border-top:1px solid rgba(233,221,210,.15);padding-bloc
                     <li><div class="node"><b>Diana Vehuni</b><small>younger daughter</small></div></li>
                   </ul>
                 </li>
-                <li><div class="node mem"><svg width="12" height="16" viewBox="0 0 12 16" aria-hidden="true"><path d="M6 0c2 3 3 4 3 6a3 3 0 0 1-6 0c0-2 1-3 3-6z" fill="#a8743a"/><rect x="3" y="9" width="6" height="7" rx="1" fill="#9c8f89"/></svg><b>Hasmik Vehuni</b><small>second daughter</small></div></li>
-                <li><div class="node"><b>Lilit Vehuni</b><small>youngest daughter</small></div></li>
+                <li><div class="node mem"><svg width="12" height="16" viewBox="0 0 12 16" aria-hidden="true"><path d="M6 0c2 3 3 4 3 6a3 3 0 0 1-6 0c0-2 1-3 3-6z" fill="#a8743a"/><rect x="3" y="9" width="6" height="7" rx="1" fill="#9c8f89"/></svg><b>Hasmik Vehuni</b><small>second daughter</small></div>
+                  <ul>
+                    <li><div class="node small"><b>Arman</b><small>elder son</small></div></li>
+                    <li><div class="node small"><b>Arsen</b><small>younger son</small></div></li>
+                  </ul>
+                </li>
+                <li><div class="node"><b>Lilit Vehuni</b><small>youngest daughter</small></div>
+                  <ul>
+                    <li><div class="node small"><b>Hayk</b><small>son</small></div></li>
+                    <li><div class="node small"><b>Ani</b><small>daughter</small></div></li>
+                  </ul>
+                </li>
               </ul>
             </li>
             <li><div class="node mem"><svg width="12" height="16" viewBox="0 0 12 16" aria-hidden="true"><path d="M6 0c2 3 3 4 3 6a3 3 0 0 1-6 0c0-2 1-3 3-6z" fill="#a8743a"/><rect x="3" y="9" width="6" height="7" rx="1" fill="#9c8f89"/></svg><b>Vrej Vehuni</b><small>younger son</small></div>
               <ul>
                 <li><div class="node mem"><svg width="12" height="16" viewBox="0 0 12 16" aria-hidden="true"><path d="M6 0c2 3 3 4 3 6a3 3 0 0 1-6 0c0-2 1-3 3-6z" fill="#a8743a"/><rect x="3" y="9" width="6" height="7" rx="1" fill="#9c8f89"/></svg><b>Armine Vehuni</b><small>elder daughter</small></div></li>
-                <li><div class="node"><b>Maria Vehuni</b><small>younger daughter</small></div></li>
+                <li><div class="node"><b>Maria Vehuni</b><small>younger daughter</small></div>
+                  <ul>
+                    <li><div class="node small"><b>Suzanna</b><small>daughter</small></div></li>
+                    <li><div class="node small"><b>Alexander</b><small>son</small></div></li>
+                  </ul>
+                </li>
               </ul>
             </li>
           </ul>
@@ -984,8 +1003,15 @@ footer .wrap.foot-bottom{border-top:1px solid rgba(233,221,210,.15);padding-bloc
   const rail=wrap.querySelector('.gen-rail'), tree=wrap.querySelector('.ftree');
   const names=['I','II','III','IV','V','VI','VII'];
   const rel=['Founders','Children','Grandchildren','Great-grandchildren','Great-great-grandchildren','Great-great-great-grandchildren','Next generation'];
+  const inner=tree.querySelector(':scope > ul');
+  function fit(){
+    inner.style.zoom=1;
+    const k=tree.clientWidth/inner.scrollWidth*.99;
+    inner.style.zoom=k<1?Math.max(k,.76):1;
+  }
   function place(){
     if(!wrap.offsetParent) return;
+    fit();
     const top=rail.getBoundingClientRect().top, ys={};
     tree.querySelectorAll('.node').forEach(n=>{
       let d=0,el=n.parentElement; while(el&&el!==tree){ if(el.tagName==='UL') d++; el=el.parentElement; }
