@@ -1045,12 +1045,17 @@ label .opt{font-weight:400;color:var(--muted);font-size:.85em}
   const t=document.querySelector('.hy-big'), h=document.querySelector('.hero h1');
   if(!t||!h) return;
   function fit(){
+    const target=h.getBoundingClientRect().width;
+    if(!target) return;
+    const prev=t.style.fontSize;
     t.style.fontSize='100px';
-    const w=t.getBoundingClientRect().width, target=h.getBoundingClientRect().width;
-    if(w&&target) t.style.fontSize=(100*target/w)+'px';
+    const w=t.getBoundingClientRect().width;
+    t.style.fontSize=w?(100*target/w)+'px':prev;
   }
   fit(); if(document.fonts&&document.fonts.ready) document.fonts.ready.then(fit);
   window.addEventListener('load',fit); window.addEventListener('resize',fit);
+  window.addEventListener('hashchange',()=>{requestAnimationFrame(fit);setTimeout(fit,120);});
+  if(window.ResizeObserver) new ResizeObserver(fit).observe(h);
 })();
 </script>
 <script>
