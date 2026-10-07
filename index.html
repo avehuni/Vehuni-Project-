@@ -471,6 +471,13 @@ label .opt{font-weight:400;color:var(--muted);font-size:.85em}
 .btn.ghost-dark:hover{background:var(--pom);color:var(--white)}
 footer .wrap.foot-privacy{display:block;padding-block:0 1.2rem;text-align:center}
 footer .foot-privacy p{margin:0 auto;font-size:.8rem;line-height:1.6;color:#bba597;text-wrap:balance}
+.policy{max-width:46rem}
+.policy h2{font-size:1.45rem;margin:2.2rem 0 .6rem}
+.policy p{line-height:1.8;color:var(--walnut)}
+.policy a{color:var(--pom)}
+footer .foot-bottom a{color:#bba597;text-decoration:underline;text-underline-offset:3px}
+footer .foot-bottom a:hover{color:#f2b483}
+@media (max-width:960px){footer .foot-bottom .sep{display:none}footer .foot-bottom > span:first-child{display:flex;flex-direction:column;align-items:center;gap:.5rem}}
 </style>
 </head>
 <body>
@@ -928,10 +935,32 @@ footer .foot-privacy p{margin:0 auto;font-size:.8rem;line-height:1.6;color:#bba5
     <span class="eyebrow">Stay Connected</span>
     <h2>Help Us Find Every Branch</h2>
     <p>If you know a Vehuni, a Vehouni, or anyone carrying another spelling of our name anywhere in the world, share this page with them, and if you hold family records, photographs, or memories to contribute, reach out to Dr. Alina Vehuni, who is gathering the family's story.</p>
-    <a class="btn pom" href="mailto:alina@wholenesseducation.com?subject=The%20Vehuni%20Project">Contact Alina</a>
+    <a class="btn pom" href="mailto:info@wholenesseducation.com?subject=The%20Vehuni%20Project">Contact Alina</a>
   </div>
 </section>
 
+</main>
+<main class="page" data-page="privacy" hidden>
+<header class="pagehead"><div class="wrap"><span class="eyebrow">The Vehuni Project</span><h1>Privacy Policy</h1><p>Last updated October 7, 2026</p></div></header>
+<section class="band white">
+  <div class="wrap policy">
+    <p>The Vehuni Project is a family undertaking, created by Dr. Alina Vehuni to gather every branch of the Vehuni family, in every spelling of the name, into one living archive and, one day, around one shared table. This page explains, with the same care that guides the project itself, what information the site receives, how it is held, and the choices that remain yours.</p>
+    <h2>What We Receive</h2>
+    <p>When you add your branch, the form asks for your full name, your email address, the country and city where you live, your connection to the Vehuni family, your eldest known ancestor and ancestral town, and the story your family carries. You decide how much to share, and only your name, email, country, and story are required.</p>
+    <h2>How It Is Used</h2>
+    <p>Everything you share is used solely for The Vehuni Project. It lets Alina write back to you personally, welcome your branch into the family archive, place your family on the map of where Vehunis live today, and, with your permission, prepare your story for Family Stories. Your email address remains private and is used only to write to you about the project and the reunion.</p>
+    <h2>Who Sees It</h2>
+    <p>Your submission arrives directly in Alina's inbox through FormSubmit, a form delivery service, and the site itself is hosted by Vercel. These services carry the information safely to its destination and hold it for that purpose alone. Your details stay within The Vehuni Project and are never sold, rented, or shared with anyone else.</p>
+    <h2>Your Story and Your Permission</h2>
+    <p>A family story, name, or photograph appears on the site only after you have given your permission, and you may ask at any time to change how your branch is shown or to have it removed.</p>
+    <h2>The Reunion Fund</h2>
+    <p>When the reunion fund opens, contributions will be received through GoFundMe, which handles payment details under its own privacy policy, so The Vehuni Project never sees or stores card information.</p>
+    <h2>Your Choices</h2>
+    <p>You may ask to see, correct, or remove any information you have shared by writing to Alina, who will respond personally and promptly.</p>
+    <h2>Contact</h2>
+    <p>Dr. Alina Vehuni, <a href="mailto:info@wholenesseducation.com?subject=The%20Vehuni%20Project%20Privacy">info@wholenesseducation.com</a></p>
+  </div>
+</section>
 </main>
 <footer>
   <div class="wrap">
@@ -939,11 +968,11 @@ footer .foot-privacy p{margin:0 auto;font-size:.8rem;line-height:1.6;color:#bba5
     <div><h4>Explore</h4><ul><li><a href="#home">Home</a></li><li><a href="#archive">Family Archive</a></li><li><a href="#story">Our Story</a></li><li><a href="#gallery">Gallery</a></li><li><a href="#gathering">The Gathering</a></li></ul></div>
     <div><h4>Connect</h4><ul><li><a href="#archive">Add Your Branch</a></li><li><a href="https://alinavehuni.com" rel="noopener">alinavehuni.com</a></li></ul></div>
   </div>
-  <div class="wrap foot-bottom"><span>© 2026 The Vehuni Project</span><span>Elevated, dignified, grand, and united</span></div>
+  <div class="wrap foot-bottom"><span>© 2026 The Vehuni Project<span class="sep"> · </span><a href="#privacy">Privacy Policy</a></span><span>Elevated, dignified, grand, and united</span></div>
 </footer>
 <script>
 (function(){
-  const PAGES=['home','story','archive','gathering'];
+  const PAGES=['home','story','archive','gathering','privacy'];
   const ALIAS={name:'home',gallery:'story',join:'archive'};
   function show(){
     let h=(location.hash||'#home').slice(1); const target=ALIAS[h]; if(target) h=target; if(!PAGES.includes(h)) h='home';
@@ -968,7 +997,7 @@ footer .foot-privacy p{margin:0 auto;font-size:.8rem;line-height:1.6;color:#bba5
   const FIELDS=['name','connection','city','country','ancestor','origin'];
   const SFIELDS=['stitle','stext'];
   let db=null, me=null, emailMode=false;
-  const FORM_ENDPOINT='https://formsubmit.co/ajax/alina@wholenesseducation.com';
+  const FORM_ENDPOINT='https://formsubmit.co/ajax/info@wholenesseducation.com';
   btn.disabled=true;
   function esc(s){return String(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
   function render(docs){
