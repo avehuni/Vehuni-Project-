@@ -990,7 +990,7 @@ label .opt{font-weight:400;color:var(--muted);font-size:.85em}
   async function start(){
     if(!window.claude||!window.claude.use){
       emailMode=true; btn.disabled=false;
-      status.textContent='Your branch and your story will be sent to Alina Vehuni, who will be in touch with you by email.';
+      status.textContent='Your details and your story come privately to Alina Vehuni, who will be in touch with you by email and will publish your story only with your permission.';
       return;
     }
     const [dbNs,userNs]=await Promise.all([window.claude.use('db'),window.claude.use('user')]);
