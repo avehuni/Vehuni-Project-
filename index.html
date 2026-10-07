@@ -318,7 +318,9 @@ form .btn[disabled]{opacity:.55;cursor:default;transform:none}
 .teaser p{font-size:.98rem;color:var(--muted);flex:1}
 .teaser .more{font-weight:600;color:var(--pom);font-size:.92rem}
 .teaser .more::after{content:" \2192"}
-.spellings{display:flex;flex-wrap:wrap;gap:.8rem;justify-content:center;max-width:52rem;margin:0 auto}
+.spellings{display:grid;grid-template-columns:repeat(4,max-content);gap:.8rem;justify-content:center;margin:0 auto}
+.spellings span{text-align:center}
+@media (max-width:640px){.spellings{grid-template-columns:repeat(2,max-content)}}
 .spellings span{background:var(--white);border:1px solid var(--line);border-radius:999px;padding:.6rem 1.3rem;font-family:var(--display);font-size:1.15rem}
 .spellings span[lang="hy"]{font-family:var(--arm);color:var(--pom)}
 .spell-note{text-align:center;margin-top:1.8rem;color:var(--muted)}
@@ -545,7 +547,7 @@ label .opt{font-weight:400;color:var(--muted);font-size:.85em}
       <p class="balanced">Ours is one of the rarest surnames in the Armenian world, carried by only a small number of families scattered across many countries. As it has traveled through many languages, alphabets, and border crossings, it has taken more than one form, so you may know it in one of these spellings, and every one of them, along with any we have yet to discover, belongs to this family.</p>
     </div>
     <div class="spellings">
-      <span lang="hy">Վեհունի</span><span>Vehuni</span><span>Vehouni</span><span>Vehuny</span><span>Veguni</span><span lang="ru">Вегуни</span>
+      <span lang="hy">Վեհունի</span><span>Vehuni</span><span>Vehouni</span><span>Vehuny</span><span>Veguni</span><span>Vegouni</span><span>Vegouny</span><span lang="ru">Вегуни</span>
     </div>
     <p class="spell-note">Whatever spelling your family carries, you are warmly invited to share your branch in the <a href="#archive">Family Archive</a>.</p>
   </div>
