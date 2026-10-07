@@ -477,7 +477,10 @@ footer .foot-privacy p{margin:0 auto;font-size:.8rem;line-height:1.6;color:#bba5
 .policy a{color:var(--pom)}
 footer .foot-bottom a{color:#bba597;text-decoration:underline;text-underline-offset:3px}
 footer .foot-bottom a:hover{color:#f2b483}
-@media (max-width:960px){footer .foot-bottom .sep{display:none}footer .foot-bottom > span:first-child{display:flex;flex-direction:column;align-items:center;gap:.5rem}}
+footer .foot-bottom > *{flex:1 1 0}
+footer .foot-bottom > .foot-privacy-link{text-align:center}
+footer .foot-bottom > span:last-child{text-align:right}
+@media (max-width:960px){footer .foot-bottom > *{flex:none;text-align:center!important}}
 </style>
 </head>
 <body>
@@ -968,7 +971,7 @@ footer .foot-bottom a:hover{color:#f2b483}
     <div><h4>Explore</h4><ul><li><a href="#home">Home</a></li><li><a href="#archive">Family Archive</a></li><li><a href="#story">Our Story</a></li><li><a href="#gallery">Gallery</a></li><li><a href="#gathering">The Gathering</a></li></ul></div>
     <div><h4>Connect</h4><ul><li><a href="#archive">Add Your Branch</a></li><li><a href="https://alinavehuni.com" rel="noopener">alinavehuni.com</a></li></ul></div>
   </div>
-  <div class="wrap foot-bottom"><span>© 2026 The Vehuni Project<span class="sep"> · </span><a href="#privacy">Privacy Policy</a></span><span>Elevated, dignified, grand, and united</span></div>
+  <div class="wrap foot-bottom"><span>© 2026 The Vehuni Project</span><a class="foot-privacy-link" href="#privacy">Privacy Policy</a><span>Elevated, dignified, grand, and united</span></div>
 </footer>
 <script>
 (function(){
