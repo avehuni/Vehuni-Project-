@@ -483,6 +483,34 @@ footer .foot-bottom > span:last-child{text-align:right}
 @media (max-width:960px){footer .foot-bottom > *{flex:none;text-align:center!important}}
 @media (max-width:380px){.sec-head h2{font-size:1.72rem}}
 @media (max-width:380px){.ch-tabs{grid-template-columns:repeat(3,minmax(0,1fr));row-gap:.4rem}.ch-tab{font-size:.85rem}.ch-panel .eyebrow{font-size:.66rem;letter-spacing:.1em}}
+.langscape{list-style:none;margin:2.6rem auto 0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));max-width:64rem}
+.ls-st{display:grid;grid-row:span 3;grid-template-rows:subgrid;text-align:center}
+.ls-head{padding:0 .8rem 1.1rem;display:flex;flex-direction:column;gap:.3rem;justify-content:flex-end}
+.ls-head h3{font-size:1.25rem;line-height:1.25}
+.ls-gen{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);font-weight:600}
+.ls-seg{background:linear-gradient(180deg,#c4642a,var(--pom));color:#fff;padding:.85rem .5rem;font-family:var(--display);font-size:1.02rem;position:relative;box-shadow:0 10px 22px -18px rgba(122,52,18,.8)}
+.ls-st+.ls-st .ls-seg::before{content:"";position:absolute;left:0;top:22%;bottom:22%;border-left:1px solid rgba(255,255,255,.35)}
+.ls-st:first-child .ls-seg{border-radius:999px 0 0 999px}
+.ls-st:last-child .ls-seg{border-radius:0 999px 999px 0}
+.ls-langs{display:flex;flex-wrap:wrap;gap:.5rem;justify-content:center;padding:1.1rem .6rem 0}
+.ls-langs span{background:var(--soft);border:1px solid var(--line);border-radius:999px;padding:.4rem .95rem;font-size:.92rem;color:var(--walnut)}
+.ls-key{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:.5rem 1.4rem;margin-top:2.2rem;font-size:.85rem;color:var(--muted)}
+.ls-key i{display:inline-block;width:1.8rem;height:.6rem;border-radius:999px;background:var(--pom);margin-right:-.9rem}
+.ls-key i.o{background:var(--soft);border:1px solid var(--line);height:.7rem}
+@media (max-width:760px){
+  .langscape{grid-template-columns:1fr;max-width:26rem}
+  .ls-st{grid-row:auto;grid-template-columns:auto 1fr;grid-template-rows:auto auto;text-align:left;column-gap:1.1rem}
+  .ls-seg{grid-row:1 / span 2;grid-column:1;width:.55rem;padding:0;border-radius:0!important;background:var(--pom);box-shadow:none}
+  .ls-seg span{display:none}
+  .ls-st:first-child .ls-seg{border-radius:999px 999px 0 0!important}
+  .ls-st:last-child .ls-seg{border-radius:0 0 999px 999px!important}
+  .ls-st+.ls-st .ls-seg::before{display:none}
+  .ls-head{grid-column:2;padding:1.2rem 0 .5rem;justify-content:flex-start;min-height:0}
+  .ls-langs{grid-column:2;justify-content:flex-start;padding:0 0 1.4rem}
+  .ls-langs .ls-arm{display:inline-block}
+}
+.ls-langs .ls-arm{display:none;background:var(--pom);border-color:var(--pom);color:#fff}
+@media (max-width:760px){.ls-langs .ls-arm{display:inline-block}}
 </style>
 </head>
 <body>
@@ -714,6 +742,18 @@ footer .foot-bottom > span:last-child{text-align:right}
       <dl class="gen-key"><div><dt>Gen I</dt><dd>Founders</dd></div><div><dt>Gen II</dt><dd>Children</dd></div><div><dt>Gen III</dt><dd>Grandchildren</dd></div><div><dt>Gen IV</dt><dd>Great-grandchildren</dd></div><div><dt>Gen V</dt><dd>2× Great-grandchildren</dd></div><div><dt>Gen VI</dt><dd>3× Great-grandchildren</dd></div></dl>
       <div class="legend"><svg width="12" height="16" viewBox="0 0 12 16" aria-hidden="true"><path d="M6 0c2 3 3 4 3 6a3 3 0 0 1-6 0c0-2 1-3 3-6z" fill="#a8743a"/><rect x="3" y="9" width="6" height="7" rx="1" fill="#9c8f89"/></svg>In loving memory</div>
     </div>
+  </div>
+</section>
+
+<section class="band white" id="s-languages">
+  <div class="wrap">
+    <div class="sec-head center">
+      <span class="eyebrow">Our Linguistic Landscape</span>
+      <h2>The Languages We Have Carried</h2>
+      <p class="balanced">Every generation of our family has lived its life in more than one language, carrying Armenian as its constant thread while learning to speak the languages of each land that received us, so that the story of where we have been is written as clearly in the words we spoke as in the places we called home.</p>
+    </div>
+    <ol class="langscape"><li class="ls-st"><div class="ls-head"><h3>Tigranakert and Nakhchivan</h3><span class="ls-gen">Gen I · Tovmas and Maria</span></div><div class="ls-seg"><span>Western Armenian</span></div><div class="ls-langs"><span class="ls-arm">Western Armenian</span><span>Turkish</span></div></li><li class="ls-st"><div class="ls-head"><h3>Tabriz</h3><span class="ls-gen">Gen I – II</span></div><div class="ls-seg"><span>Armenian</span></div><div class="ls-langs"><span class="ls-arm">Armenian</span><span>Farsi</span><span>Turkish</span></div></li><li class="ls-st"><div class="ls-head"><h3>Yerevan</h3><span class="ls-gen">Gen II – IV · from 1946</span></div><div class="ls-seg"><span>Eastern Armenian</span></div><div class="ls-langs"><span class="ls-arm">Eastern Armenian</span><span>Russian</span></div></li><li class="ls-st"><div class="ls-head"><h3>California</h3><span class="ls-gen">Gen IV – VI</span></div><div class="ls-seg"><span>Armenian</span></div><div class="ls-langs"><span class="ls-arm">Armenian</span><span>English</span><span>Russian</span></div></li></ol>
+    <p class="ls-key"><i></i>Armenian, carried through every generation<i class="o"></i>The languages of each land that received us</p>
   </div>
 </section>
 
