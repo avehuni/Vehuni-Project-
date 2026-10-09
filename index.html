@@ -494,6 +494,18 @@ footer .foot-bottom > span:last-child{text-align:right}
 .node .nl i{font-style:normal;font-size:.66rem;font-weight:600;line-height:1;padding:.26rem .45rem;border-radius:999px;border:1px solid #d9bd9c;color:var(--gold);background:var(--white);white-space:nowrap}
 .node .nl i.a{background:var(--pom);border-color:var(--pom);color:#fff}
 .show-langs .node:not(:has(.nl)){opacity:.55}
+
+.gather-q{border:0;margin:0;padding:0;min-width:0}
+.gather-q legend{font-size:.85rem;font-weight:600;color:var(--walnut);margin-bottom:.6rem;padding:0}
+.gq-opts{display:grid;gap:.55rem;justify-items:stretch}
+.gq-opts label{flex-direction:row;cursor:pointer;font-weight:500}
+.gq-opts input{position:absolute;opacity:0;pointer-events:none}
+.gq-opts label{display:block}
+.gq-opts span{display:block;text-wrap:balance;line-height:1.35;padding:.6rem 1.1rem;border:1px solid var(--line);border-radius:999px;background:var(--soft);color:var(--walnut);font-size:.9rem;transition:background .2s,border-color .2s,color .2s}
+.gq-opts label:hover span{border-color:var(--pom)}
+.gq-opts input:checked+span{background:var(--pom);border-color:var(--pom);color:#fff}
+.gq-opts input:focus-visible+span{outline:2px solid var(--pom);outline-offset:2px}
+@media (max-width:640px){.gq-opts span{font-size:.86rem;padding:.6rem .95rem;text-align:center}}
 </style>
 </head>
 <body>
@@ -805,6 +817,14 @@ footer .foot-bottom > span:last-child{text-align:right}
           <label for="f-stitle">Story title<input id="f-stitle" name="stitle" maxlength="120" placeholder="e.g. From Marash to Montreal"></label>
           <label for="f-stext">Your story<textarea id="f-stext" name="stext" required maxlength="20000" style="min-height:12rem" placeholder="Who were your Vehuni ancestors, where did they live, and how did your family come to be where it is today?"></textarea></label>
         </div>
+        <fieldset class="gather-q">
+          <legend>Would you hope to join a future gathering of the Vehuni family?</legend>
+          <div class="gq-opts">
+            <label><input type="radio" name="gathering" value="Yes, I would love to be there"><span>Yes, I would love to be there</span></label>
+            <label><input type="radio" name="gathering" value="Perhaps, depending on time and place"><span>Perhaps, depending on time and place</span></label>
+            <label><input type="radio" name="gathering" value="Please keep me informed"><span>Please keep me informed</span></label>
+          </div>
+        </fieldset>
         <button class="btn pom" id="f-submit" type="submit">Join the Archive</button>
         <p class="status" id="f-status" aria-live="polite"></p>
       </form>
@@ -1074,7 +1094,7 @@ footer .foot-bottom > span:last-child{text-align:right}
         const res=await fetch(FORM_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},
           body:JSON.stringify({_subject:(story.stext?'New branch and family story for The Vehuni Project: ':'New branch for The Vehuni Project: ')+data.name,_template:'table',_captcha:'false',
             'Name':data.name,'Email':email,_replyto:email,'Vehuni connection':data.connection,'City':data.city,'Country':data.country,
-            'Eldest known ancestor':data.ancestor,'Ancestral town or village':data.origin,'Story title':story.stitle,'Story':story.stext})});
+            'Eldest known ancestor':data.ancestor,'Ancestral town or village':data.origin,'Story title':story.stitle,'Story':story.stext,'Future gathering':(form.elements.gathering.value||'Not answered')})});
         if(!res.ok) throw new Error('send');
         let ok=true; try{const j=await res.json(); if(j&&(j.success===false||j.success==='false')) ok=false;}catch(_){}
         if(!ok) throw new Error('send');
