@@ -483,6 +483,17 @@ footer .foot-bottom > span:last-child{text-align:right}
 @media (max-width:960px){footer .foot-bottom > *{flex:none;text-align:center!important}}
 @media (max-width:380px){.sec-head h2{font-size:1.72rem}}
 @media (max-width:380px){.ch-tabs{grid-template-columns:repeat(3,minmax(0,1fr));row-gap:.4rem}.ch-tab{font-size:.85rem}.ch-panel .eyebrow{font-size:.66rem;letter-spacing:.1em}}
+
+.lang-toggle{display:flex;width:max-content;margin:1rem auto 1.6rem;padding:.3rem;border:1px solid var(--line);border-radius:999px;background:var(--soft)}
+.lang-toggle button{font:inherit;font-size:.9rem;font-weight:600;letter-spacing:.02em;border:0;background:transparent;color:var(--muted);padding:.5rem 1.25rem;border-radius:999px;cursor:pointer;transition:background .25s,color .25s}
+.lang-toggle button.on{background:var(--pom);color:#fff;box-shadow:0 8px 18px -12px rgba(122,52,18,.9)}
+.lang-note{display:none;text-align:center;color:var(--muted);font-size:.92rem;margin:-.6rem auto 1.6rem;max-width:34rem;text-wrap:balance}
+.show-langs .lang-note{display:block}
+.node .nl{display:none;flex-wrap:wrap;justify-content:center;gap:.25rem;max-width:7.4rem;margin-top:.45rem}
+.show-langs .node .nl{display:flex}
+.node .nl i{font-style:normal;font-size:.66rem;font-weight:600;line-height:1;padding:.26rem .45rem;border-radius:999px;border:1px solid #d9bd9c;color:var(--gold);background:var(--white);white-space:nowrap}
+.node .nl i.a{background:var(--pom);border-color:var(--pom);color:#fff}
+.show-langs .node:not(:has(.nl)){opacity:.55}
 </style>
 </head>
 <body>
@@ -664,46 +675,47 @@ footer .foot-bottom > span:last-child{text-align:right}
 
     <div class="tree-wrap">
       <h3>The Descendants of Tovmas and Maria</h3>
-      
+      <div class="lang-toggle" role="group" aria-label="Family tree view"><button type="button" class="on" data-v="family" aria-pressed="true">Family</button><button type="button" data-v="langs" aria-pressed="false">Languages</button></div>
+      <p class="lang-note">The languages each generation has carried, with Armenian passed from one generation to the next.</p>
       <div class="ftree-wrap"><div class="gen-rail" aria-hidden="true"></div><div class="ftree" role="img" aria-label="Family tree of Tovmas and Maria Vehuni and their descendants">
-        <ul><li><div class="node couple mem"><svg width="12" height="16" viewBox="0 0 12 16" aria-hidden="true"><path d="M6 0c2 3 3 4 3 6a3 3 0 0 1-6 0c0-2 1-3 3-6z" fill="#a8743a"/><rect x="3" y="9" width="6" height="7" rx="1" fill="#9c8f89"/></svg><b>Tovmas Vehuni</b><span class="amp">&amp;</span><b>Maria (Maroos)</b><small>Tigranakert · Tabriz</small></div>
+        <ul><li><div class="node couple mem"><svg width="12" height="16" viewBox="0 0 12 16" aria-hidden="true"><path d="M6 0c2 3 3 4 3 6a3 3 0 0 1-6 0c0-2 1-3 3-6z" fill="#a8743a"/><rect x="3" y="9" width="6" height="7" rx="1" fill="#9c8f89"/></svg><b>Tovmas Vehuni</b><span class="amp">&amp;</span><b>Maria (Maroos)</b><small>Tigranakert · Tabriz</small><span class="nl"><i class="a">Armenian</i><i>Turkish</i></span></div>
           <ul>
-            <li><div class="node mem"><svg width="12" height="16" viewBox="0 0 12 16" aria-hidden="true"><path d="M6 0c2 3 3 4 3 6a3 3 0 0 1-6 0c0-2 1-3 3-6z" fill="#a8743a"/><rect x="3" y="9" width="6" height="7" rx="1" fill="#9c8f89"/></svg><b>Azat Vehuni</b><small>elder son</small></div>
+            <li><div class="node mem"><svg width="12" height="16" viewBox="0 0 12 16" aria-hidden="true"><path d="M6 0c2 3 3 4 3 6a3 3 0 0 1-6 0c0-2 1-3 3-6z" fill="#a8743a"/><rect x="3" y="9" width="6" height="7" rx="1" fill="#9c8f89"/></svg><b>Azat Vehuni</b><small>elder son</small><span class="nl"><i class="a">Armenian</i><i>Farsi</i><i>Turkish</i></span></div>
               <ul>
-                <li><div class="node"><b>Julietta Vehuni</b><small>eldest daughter</small></div>
+                <li><div class="node"><b>Julietta Vehuni</b><small>eldest daughter</small><span class="nl"><i class="a">Armenian</i><i>Russian</i></span></div>
                   <ul>
-                    <li><div class="node"><b>Alina Vehuni</b><small>elder daughter</small></div>
+                    <li><div class="node"><b>Alina Vehuni</b><small>elder daughter</small><span class="nl"><i class="a">Armenian</i><i>Russian</i><i>English</i><i>Spanish</i></span></div>
                       <ul>
-                        <li><div class="node couple"><b>Aram Maximus</b><span class="amp">&amp;</span><b>Alexandra</b><small>elder son, with his wife</small></div>
-                          <ul><li><div class="node"><b>Vienna Vehuni</b><small>daughter</small></div></li></ul>
+                        <li><div class="node couple"><b>Aram Maximus</b><span class="amp">&amp;</span><b>Alexandra</b><small>elder son, with his wife</small><span class="nl" data-for="Aram Maximus"><i class="a">Armenian</i><i>English</i><i>Russian</i></span></div>
+                          <ul><li><div class="node"><b>Vienna Vehuni</b><small>daughter</small><span class="nl"><i class="a">Armenian</i><i>English</i><i>Russian</i></span></div></li></ul>
                         </li>
-                        <li><div class="node"><b>Alexander</b><small>younger son</small></div></li>
+                        <li><div class="node"><b>Alexander</b><small>younger son</small><span class="nl"><i class="a">Armenian</i><i>English</i><i>Russian</i></span></div></li>
                       </ul>
                     </li>
-                    <li><div class="node"><b>Diana Vehuni</b><small>younger daughter</small></div></li>
+                    <li><div class="node"><b>Diana Vehuni</b><small>younger daughter</small><span class="nl"><i class="a">Armenian</i><i>English</i><i>Russian</i></span></div></li>
                   </ul>
                 </li>
-                <li><div class="node mem"><svg width="12" height="16" viewBox="0 0 12 16" aria-hidden="true"><path d="M6 0c2 3 3 4 3 6a3 3 0 0 1-6 0c0-2 1-3 3-6z" fill="#a8743a"/><rect x="3" y="9" width="6" height="7" rx="1" fill="#9c8f89"/></svg><b>Hasmik Vehuni</b><small>second daughter</small></div>
+                <li><div class="node mem"><svg width="12" height="16" viewBox="0 0 12 16" aria-hidden="true"><path d="M6 0c2 3 3 4 3 6a3 3 0 0 1-6 0c0-2 1-3 3-6z" fill="#a8743a"/><rect x="3" y="9" width="6" height="7" rx="1" fill="#9c8f89"/></svg><b>Hasmik Vehuni</b><small>second daughter</small><span class="nl"><i class="a">Armenian</i><i>Russian</i></span></div>
                   <ul>
-                    <li><div class="node small"><b>Arman</b><small>elder son</small></div></li>
-                    <li><div class="node small"><b>Arsen</b><small>younger son</small></div></li>
+                    <li><div class="node small"><b>Arman</b><small>elder son</small><span class="nl"><i class="a">Armenian</i><i>English</i><i>Russian</i></span></div></li>
+                    <li><div class="node small"><b>Arsen</b><small>younger son</small><span class="nl"><i class="a">Armenian</i><i>English</i></span></div></li>
                   </ul>
                 </li>
-                <li><div class="node"><b>Lilit Vehuni</b><small>youngest daughter</small></div>
+                <li><div class="node"><b>Lilit Vehuni</b><small>youngest daughter</small><span class="nl"><i class="a">Armenian</i><i>Russian</i></span></div>
                   <ul>
-                    <li><div class="node small"><b>Hayk</b><small>son</small></div></li>
-                    <li><div class="node small"><b>Ani</b><small>daughter</small></div></li>
+                    <li><div class="node small"><b>Hayk</b><small>son</small><span class="nl"><i class="a">Armenian</i><i>English</i></span></div></li>
+                    <li><div class="node small"><b>Ani</b><small>daughter</small><span class="nl"><i class="a">Armenian</i><i>English</i></span></div></li>
                   </ul>
                 </li>
               </ul>
             </li>
-            <li><div class="node mem"><svg width="12" height="16" viewBox="0 0 12 16" aria-hidden="true"><path d="M6 0c2 3 3 4 3 6a3 3 0 0 1-6 0c0-2 1-3 3-6z" fill="#a8743a"/><rect x="3" y="9" width="6" height="7" rx="1" fill="#9c8f89"/></svg><b>Vrej Vehuni</b><small>younger son</small></div>
+            <li><div class="node mem"><svg width="12" height="16" viewBox="0 0 12 16" aria-hidden="true"><path d="M6 0c2 3 3 4 3 6a3 3 0 0 1-6 0c0-2 1-3 3-6z" fill="#a8743a"/><rect x="3" y="9" width="6" height="7" rx="1" fill="#9c8f89"/></svg><b>Vrej Vehuni</b><small>younger son</small><span class="nl"><i class="a">Armenian</i><i>Farsi</i><i>Turkish</i></span></div>
               <ul>
-                <li><div class="node mem"><svg width="12" height="16" viewBox="0 0 12 16" aria-hidden="true"><path d="M6 0c2 3 3 4 3 6a3 3 0 0 1-6 0c0-2 1-3 3-6z" fill="#a8743a"/><rect x="3" y="9" width="6" height="7" rx="1" fill="#9c8f89"/></svg><b>Armine Vehuni</b><small>elder daughter</small></div></li>
-                <li><div class="node"><b>Maria Vehuni</b><small>younger daughter</small></div>
+                <li><div class="node mem"><svg width="12" height="16" viewBox="0 0 12 16" aria-hidden="true"><path d="M6 0c2 3 3 4 3 6a3 3 0 0 1-6 0c0-2 1-3 3-6z" fill="#a8743a"/><rect x="3" y="9" width="6" height="7" rx="1" fill="#9c8f89"/></svg><b>Armine Vehuni</b><small>elder daughter</small><span class="nl"><i class="a">Armenian</i><i>Russian</i></span></div></li>
+                <li><div class="node"><b>Maria Vehuni</b><small>younger daughter</small><span class="nl"><i class="a">Armenian</i><i>Russian</i></span></div>
                   <ul>
-                    <li><div class="node small"><b>Suzanna</b><small>daughter</small></div></li>
-                    <li><div class="node small"><b>Alexander</b><small>son</small></div></li>
+                    <li><div class="node small"><b>Suzanna</b><small>daughter</small><span class="nl"><i class="a">Armenian</i><i>English</i><i>Russian</i></span></div></li>
+                    <li><div class="node small"><b>Alexander</b><small>son</small><span class="nl"><i class="a">Armenian</i><i>English</i><i>Russian</i></span></div></li>
                   </ul>
                 </li>
               </ul>
@@ -1163,7 +1175,7 @@ footer .foot-bottom > span:last-child{text-align:right}
   function fit(){
     inner.style.zoom=1;
     const k=tree.clientWidth/inner.scrollWidth*.99;
-    inner.style.zoom=k<1?Math.max(k,.76):1;
+    inner.style.zoom=k<1?Math.max(k,document.querySelector('.show-langs')&&innerWidth>960?.66:.76):1;
   }
   let centered=false;
   function place(){
@@ -1181,6 +1193,14 @@ footer .foot-bottom > span:last-child{text-align:right}
   window.addEventListener('resize',place); window.addEventListener('hashchange',()=>setTimeout(place,50));
   if(document.fonts&&document.fonts.ready) document.fonts.ready.then(place);
   setTimeout(place,100);
+})();
+</script>
+<script>
+(function(){
+  const tw=document.querySelector('.tree-wrap'), g=tw&&tw.querySelector('.lang-toggle'); if(!g) return;
+  g.addEventListener('click',e=>{const b=e.target.closest('button'); if(!b) return;
+    g.querySelectorAll('button').forEach(x=>{const on=x===b; x.classList.toggle('on',on); x.setAttribute('aria-pressed',on);});
+    tw.classList.toggle('show-langs',b.dataset.v==='langs'); window.dispatchEvent(new Event('resize'));});
 })();
 </script>
 
